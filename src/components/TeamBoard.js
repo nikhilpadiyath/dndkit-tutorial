@@ -1,5 +1,5 @@
 import { SortableContext } from '@dnd-kit/sortable';
-import PlayerCard from './components/PlayerCard';
+import PlayerCard from './PlayerCard';
 import {useDroppable} from '@dnd-kit/core';
 
 const TeamBoard = (props) => {
@@ -13,9 +13,9 @@ const TeamBoard = (props) => {
     <article>
         <h3 style={{"marginLeft":"40px"}}>{props.title}</h3>
             <SortableContext id={props.title} items={props.players}>
-                <div ref={setNodeRef}>
+                <div ref={setNodeRef} style={{"height":"100%"}}>
                     {props.players.map((player) => (
-                        <PlayerCard key={player} title={player} />
+                        <PlayerCard key={props.title+ '-' +player} title={player} />
                     ))}
                 </div>
             </SortableContext>
